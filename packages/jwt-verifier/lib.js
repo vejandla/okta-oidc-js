@@ -106,6 +106,7 @@ class OktaJwtVerifier {
     this.claimsToAssert = options.assertClaims || {};
     this.issuer = options.issuer;
     this.jwksClient = jwksClient({
+      strictSsl: options.strictSsl || false,
       jwksUri: options.issuer + '/v1/keys',
       cache: true,
       cacheMaxAge: options.cacheMaxAge || (60 * 60 * 1000),
